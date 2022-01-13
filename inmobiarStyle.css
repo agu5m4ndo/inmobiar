@@ -99,12 +99,60 @@
         color: #fff;
     }
     
+    #button-checkbox {
+        display: none;
+    }
+    
     .button-container {
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
         margin: 5px 25px;
         border-radius: 15%;
         background-color: #fff;
-        width: 43px;
+        width: 44px;
         height: 38px;
+    }
+    
+    .button-container #span1,
+    .button-container #span2,
+    .button-container #span3 {
+        position: absolute;
+        content: "";
+        margin: 7px;
+        width: 30px;
+        height: 4px;
+        background: #888;
+        border-radius: 15px;
+        transition: all 0.4s ease;
+        z-index: 100;
+    }
+    
+    #span1 {
+        top: 2px;
+    }
+    
+    #span2 {
+        top: 10px;
+    }
+    
+    #span3 {
+        top: 18px;
+    }
+    
+    #button-checkbox:checked~.button-container #span1 {
+        transform: rotate(45deg);
+        top: 10px;
+    }
+    
+    #button-checkbox:checked~.button-container #span2 {
+        opacity: 0;
+    }
+    
+    #button-checkbox:checked~.button-container #span3 {
+        transform: rotate(-45deg);
+        top: 10px;
     }
     /* ============================================HOME========================================= */
     
