@@ -205,7 +205,7 @@
         position: absolute;
         top: 5px;
         text-align: center;
-        padding: 10% 0;
+        padding: 30px 0;
     }
     
     .help__text-container h2,
@@ -342,8 +342,7 @@
             min-height: 320px;
         }
         .help__text-container {
-            top: 32px;
-            padding: 3% 0;
+            padding: 45px 0 0;
         }
         /* ============================================FOOTER========================================= */
         .divider {
