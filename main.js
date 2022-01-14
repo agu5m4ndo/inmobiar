@@ -1,11 +1,30 @@
-let burgerMenu = document.getElementById("button-checkbox");
+let burgerMenu = document.getElementById("button-checkbox"),
+    menuContainer = document.getElementsByClassName("menu-container")[0],
+    navb = document.getElementsByTagName("nav")[0],
+    open = false;
 
-burgerMenu.addEventListener("click", function dropdownMenu() {
-    if (burgerMenu.checked) {
-        document.getElementsByClassName("menu-container")[0].classList.add("show");
-        document.getElementsByTagName("nav")[0].setAttribute("style", "background: #000")
+document.addEventListener("click", function(evt) {
+    let isTarget = evt.target;
+
+    if (burgerMenu == isTarget && open == false) {
+        dropdownMenu();
     } else {
-        document.getElementsByClassName("menu-container")[0].classList.remove("show");
-        document.getElementsByTagName("nav")[0].setAttribute("style", "background: #0007")
+        dropdownMenu();
+        menuContainer.classList.remove("show");
+        navb.setAttribute("style", "background: #0007");
+        burgerMenu.checked = false;
     }
+
 });
+
+function dropdownMenu() {
+    if (burgerMenu.checked) {
+        menuContainer.classList.add("show");
+        navb.setAttribute("style", "background: #000");
+        return open = true;
+    } else {
+        menuContainer.classList.remove("show");
+        navb.setAttribute("style", "background: #0007");
+        return open = false;
+    }
+}
