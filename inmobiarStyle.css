@@ -70,6 +70,7 @@
         color: #fff;
         font-family: "g-bold";
         font-size: var(--mobile-small-paragraph);
+        cursor: pointer;
     }
     /* ============================================NAVBAR========================================= */
     
@@ -367,6 +368,71 @@
     .copyright {
         font-size: var(--mobile-small-paragraph);
     }
+    /* ======================================================================= */
+    /* ===============================Página de sugerencias=============================== */
+    /* ======================================================================= */
+    
+    .sugestions__text-container {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        top: 60px;
+        margin: 5%;
+    }
+    
+    .sugestions__text-container p {
+        color: #a3a3a3;
+    }
+    
+    .sugestions__single-container h2 {
+        margin-top: 3%;
+        font-size: 28px;
+    }
+    
+    .sugestions__container {
+        margin: 80px 9%;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    
+    .sugestions__single-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0px 10px 20px -7px #000000;
+        border-radius: 15px;
+    }
+    
+    .sugestion__image-container {
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 250px;
+        background-size: 120%;
+        background-position: -20 -60px;
+        border-radius: 15px 15px 0 0;
+        width: 100%;
+    }
+    
+    #alquiler {
+        background-image: url(./img/alquiler2.jpg);
+        direction: rtl;
+        background-size: 130%;
+        background-position: -60px -10px;
+    }
+    
+    #venta {
+        background-image: url(./img/recibirllaves.jpg);
+        background-position: -50px;
+        background-size: 130%;
+        background-position: -20px -15px;
+    }
+    
+    #compra {
+        background-image: url(./img/alquiler.jpg);
+        background-size: 120%;
+        background-position: -20px 0;
+    }
     /* ======================================CAMBIO DE PANTALLA================================= */
     
     @media screen and (min-width: 768px) {
@@ -463,5 +529,19 @@
         }
         .copyright {
             font-size: var(--mobile-small-paragraph);
+        }
+        /* ======================================================================= */
+        /* ===============================Página de sugerencias=============================== */
+        /* ======================================================================= */
+        .sugestions__text-container p {
+            margin: 0 15%;
+        }
+        .sugestions__container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .sugestions__single-container h2 {
+            margin-top: 3%;
         }
     }
