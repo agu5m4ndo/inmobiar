@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./inmobiarStyle.css">
+    <title>Guía de venta</title>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html" class="logo">Inmobi</a>
+        <input type="checkbox" id="button-checkbox">
+        <label for="button-checkbox" class="button-container">
+        <span id="span1"></span><span id="span2"></span><span id="span3"></span>
+        </label>
+        </input>
+        <ul class="menu-container-desktop">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./sugerencias.html">Recomendaciones</a></li>
+            <li><a href="#">Búsqueda</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <section>
+        <ul class="menu-container">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./sugerencias.html">Recomendaciones</a></li>
+            <li><a href="#">Búsqueda</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </section>
+    <main>
+        <div class="guide__image-container" id="guide__venta"></div>
+        <div class="guide__text-container">
+            <h2 class="title">Guía de venta</h2>
+            <p>Recordá que para vender un inmueble es necesario que cuentes con tu DNI o pasaporte vigente.
+            </p>
+        </div>
+        <section class="guide__container">
+
+            <p>Además, necesitarás la siguiente documentación:
+            </p>
+            <ul class="guide__list">
+                <li>
+                    <h3>Boleto de compra-venta: </h3>
+                    <p>Es un documento donde el propietario se compromete a vender la vivienda y el comprador se compromete a comprarla. Además el comprador debe abonar un 25% del valor del inmueble como seña.</p>
+                </li>
+                <li>
+                    <h3>Título de propiedad de la vivienda:</h3>
+                    <p> Se trata del documento que certifica la propiedad del inmueble</p>
+                </li>
+                </li>
+                <li>
+                    <h3>Informe de inhibición: </h3>
+                    <p>Es un informe que expone la situación del vendedor, si se encuentra inhibido o no para vender.
+                    </p>
+                </li>
+                <li>
+                    <h3>Informe de dominio: </h3>
+                    <p>Dicho informe proporciona la titularidad del inmueble y corrobora si posee algún tipo de gravamen.
+                    </p>
+                </li>
+                <li>
+                    <h3>Gastos de inmobiliaria: </h3>
+                    <p>Deben pagarse los honorarios correspondientes a la inmobiliaria
+                    </p>
+                </li>
+            </ul>
+            <input type="button" onclick="location.href='./sugerencias.html'" class="button-1" value="Volver">
+        </section>
+    </main>
+    <footer>
+        <!-- svg olas pero con 96% de opacidad + background-color de #0098BE-->
+
+        <img src="./svg/wave7.svg" class="waves-svg" alt="">
+        <div class="footer__text-container">
+            <h2>InmobiAr</h2>
+
+            <div class="icon-container">
+                <a href="#"><img class="social-media-icon" src="./svg/facebook-logo.svg" alt=""></a>
+                <a href="#"><img class="social-media-icon" src="./svg/instagram-logo.svg" alt=""></a>
+                <a href="#"><img class="social-media-icon" src="./svg/linkedin-logo.svg" alt=""></a>
+                <a href="#"><img class="social-media-icon" src="./svg/twitter-logo.svg" alt=""></a>
+            </div>
+            <ul>
+                <li>
+                    <p>Contacto</p>
+                </li>
+                <li><svg class="divider"><circle cx="3" cy="3" r="3" fill="#fff"></circle></svg></li>
+                <li>
+                    <p>Política de privacidad</p>
+                </li>
+
+                <li><svg class="divider"><circle cx="3" cy="3" r="3" fill="#fff"></circle></svg></li>
+                <li>
+                    <p>Hecho por Agustín Mandolesi</p>
+                </li>
+            </ul>
+            <p class="copyright">Copyright 2022 © Agustín Mandolesi</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

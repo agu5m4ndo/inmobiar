@@ -1,547 +1,713 @@
-    * {
-        margin: 0;
-        padding: 0;
-        color: #0f0c27;
-        line-height: 28.5px;
-        scroll-behavior: smooth;
-        scroll-margin-top: 6em;
-        font-weight: 400;
-    }
-    
-    @font-face {
-        font-family: "g-bold";
-        src: url(./font/GothamRounded-Bold.otf);
-    }
-    
-    @font-face {
-        font-family: "g-medium";
-        src: url(./font/GothamRounded-Medium.otf);
-    }
-    
-    @font-face {
-        font-family: "nova";
-        src: url(./font/FontsFree-Net-proxima_nova_reg-webfont.ttf);
-    }
-    
-     :root {
-        --mobile-logo: 2rem;
-        --mobile-main-title: 2.5rem;
-        --mobile-title: 1.54rem;
-        --mobile-big-paragraph: 1.3rem;
-        --mobile-paragraph: 1.1rem;
-        --mobile-small-paragraph: 0.9rem;
-        --desktop-logo: 4rem;
-        --desktop-main-title: 4.5rem;
-        --desktop-title: 2rem;
-        --desktop-big-paragraph: 2rem;
-        --desktop-paragraph: 1.5rem;
-        --desktop-small-paragraph: 1.3rem;
-    }
-    
+* {
+    margin: 0;
+    padding: 0;
+    color: #0f0c27;
+    line-height: 28.5px;
+    scroll-behavior: smooth;
+    scroll-margin-top: 6em;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "g-bold";
+    src: url(./font/GothamRounded-Bold.otf);
+}
+
+@font-face {
+    font-family: "g-medium";
+    src: url(./font/GothamRounded-Medium.otf);
+}
+
+@font-face {
+    font-family: "nova";
+    src: url(./font/FontsFree-Net-proxima_nova_reg-webfont.ttf);
+}
+
+:root {
+    --mobile-logo: 2rem;
+    --mobile-main-title: 2.5rem;
+    --mobile-title: 1.54rem;
+    --mobile-big-paragraph: 1.3rem;
+    --mobile-paragraph: 1.1rem;
+    --mobile-small-paragraph: 0.9rem;
+    --desktop-logo: 4rem;
+    --desktop-main-title: 4.5rem;
+    --desktop-title: 2rem;
+    --desktop-big-paragraph: 2rem;
+    --desktop-paragraph: 1.5rem;
+    --desktop-small-paragraph: 1.3rem;
+}
+
+.main-title {
+    font-size: var(--mobile-main-title);
+    font-family: "g-bold";
+    line-height: 49px;
+    color: #fff;
+}
+
+.title {
+    font-size: var(--mobile-title);
+    margin: 4% 0;
+    font-family: "g-bold";
+}
+
+.subtitle {
+    font-size: var(--mobile-title);
+    font-family: "g-medium";
+}
+
+p {
+    font-size: var(--mobile-paragraph);
+    font-family: "nova";
+}
+
+.button-1,
+.button-2 {
+    margin: 20px;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5% 5%;
+    color: #fff;
+    font-family: "g-bold";
+    font-size: var(--mobile-small-paragraph);
+    cursor: pointer;
+}
+
+
+/* ============================================NAVBAR========================================= */
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #0007;
+    padding: 4px 10px;
+    height: 57px;
+    z-index: 300;
+    transition: background 0.5s ease-in-out;
+}
+
+.open {
+    background-color: #000;
+}
+
+.menu-container-desktop {
+    display: none;
+}
+
+.menu-container {
+    position: fixed;
+    top: 65px;
+    overflow: hidden;
+    max-height: 0;
+    width: 100%;
+    background-color: #0007;
+    transition: max-height 0.5s ease-in-out, background 0.5s ease-in-out;
+    padding: 0 25px;
+    z-index: 500;
+}
+
+.menu-container li {
+    padding: 0 0 10px;
+    list-style: none;
+}
+
+.menu-container a,
+.menu-container-desktop a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "g-medium";
+}
+
+.menu-container a:hover {
+    color: #ddd;
+}
+
+.show {
+    background-color: #000;
+    padding: 0 25px;
+    max-height: 180px;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: var(--mobile-logo);
+    font-family: "g-bold";
+    color: transparent;
+    background-image: repeating-linear-gradient(320deg, #004e64, #9fffcb);
+    -webkit-background-clip: text;
+}
+
+.logo::after {
+    content: "Ar";
+    color: #fff;
+}
+
+#button-checkbox {
+    display: none;
+}
+
+.button-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 5px 25px;
+    border-radius: 15%;
+    background-color: #fff;
+    width: 44px;
+    height: 38px;
+}
+
+.button-container #span1,
+.button-container #span2,
+.button-container #span3 {
+    position: absolute;
+    content: "";
+    margin: 7px;
+    width: 30px;
+    height: 4px;
+    background: #888;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+#span1 {
+    top: 2px;
+}
+
+#span2 {
+    top: 10px;
+}
+
+#span3 {
+    top: 18px;
+}
+
+#button-checkbox:checked~.button-container #span1 {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+#button-checkbox:checked~.button-container #span2 {
+    opacity: 0;
+}
+
+#button-checkbox:checked~.button-container #span3 {
+    transform: rotate(-45deg);
+    top: 10px;
+}
+
+#button-checkbox:checked~nav {
+    height: 100px;
+}
+
+
+/* ============================================HOME========================================= */
+
+.home__image-container {
+    min-height: 680px;
+    background-image: url(./img/indoor.jpg);
+    background-position: 75% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home__text-container {
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 11%;
+    margin: 5%;
+    height: 76%;
+}
+
+.home__text-container h3,
+.home__text-container p {
+    color: #fff;
+}
+
+.home__text-container h1,
+.home__text-container h3 {
+    padding: 10px 30px;
+}
+
+.home__text-container p {
+    margin-top: 15%;
+}
+
+.scroll-down-svg {
+    height: 75px;
+    margin-top: 10px;
+    fill: #fff;
+}
+
+.home__image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #014E6470;
+    min-height: 680px;
+    width: 100%;
+}
+
+
+/* ============================================SERVICES========================================= */
+
+.services,
+.begin {
+    padding: 20px;
+    text-align: center;
+}
+
+.services h2 {
+    margin: 4% 0;
+}
+
+.services p {
+    color: #a3a3a3;
+}
+
+.services-box {
+    margin: 30px 0;
+}
+
+.services-svg {
+    height: 110px;
+}
+
+
+/* ============================================HELP========================================= */
+
+.help {
+    position: relative;
+}
+
+.help__image-container {
+    min-height: 250px;
+    background-image: url(./img/living-room3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 100;
+}
+
+.help__image-container::after {
+    content: "";
+    background-color: #004e6465;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 250px;
+    width: 100%;
+}
+
+.help__text-container {
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.help__text-container h2,
+.help__text-container p {
+    color: #fff;
+}
+
+.button-1 {
+    background-image: linear-gradient(90deg, #25A18E, #7AE582);
+}
+
+.button-2 {
+    background-image: linear-gradient(90deg, #004e64, #00A5CF);
+    padding: 0.5% 6%;
+}
+
+
+/* ============================================FOOTER========================================= */
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.waves-svg {
+    opacity: 97%;
+    z-index: 50;
+}
+
+.footer__text-container {
+    position: relative;
+    background-color: #0098BE;
+    min-height: 80px;
+    z-index: 100;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer__text-container p {
+    color: #fff;
+    margin: 2% 0;
+    font-weight: 600;
+}
+
+.footer__text-container li>p {
+    font-size: var(--mobile-big-paragraph);
+}
+
+.footer__text-container h2 {
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    margin-bottom: 5%;
+    font-size: var(--mobile-main-title);
+    font-family: "g-bold";
+}
+
+.divider {
+    display: none;
+}
+
+.footer__text-container ul li {
+    list-style: none;
+}
+
+.social-media-icon {
+    height: 40px;
+    margin: 5px;
+}
+
+.copyright {
+    font-size: var(--mobile-small-paragraph);
+}
+
+
+/* ======================================================================= */
+
+
+/* ===============================Página de sugerencias=============================== */
+
+
+/* ======================================================================= */
+
+.sugestions__text-container,
+.guide__container {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    top: 20px;
+    margin: 5%;
+}
+
+.sugestions__text-container p {
+    color: #a3a3a3;
+}
+
+.sugestions__container {
+    margin: 80px 9%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.sugestions__single-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 10px 20px -7px #000000;
+    border-radius: 15px;
+}
+
+.sugestions__single-container h2 {
+    margin-top: 3%;
+    font-size: 22px;
+}
+
+.sugestions__single-container input {
+    margin: 10px 10px 15px;
+}
+
+.sugestion__image-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    min-height: 200px;
+    background-size: 120%;
+    background-position: -20 -60px;
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+}
+
+#alquiler {
+    background-image: url(./img/alquiler3.jpg);
+    direction: rtl;
+    background-size: 130%;
+    background-position: -60px -10px;
+}
+
+#venta {
+    background-image: url(./img/recibirllaves.jpg);
+    background-position: -50px;
+    background-size: 140%;
+    background-position: -20px -15px;
+}
+
+#compra {
+    background-image: url(./img/alquiler.jpg);
+    background-size: 120%;
+    background-position: -20px 0;
+}
+
+
+/* ======================================================================= */
+
+
+/* ===============================Páginas de guías=============================== */
+
+
+/* ======================================================================= */
+
+.guide__image-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}
+
+#guide__alquiler {
+    background-image: url(./img/alquiler3.jpg);
+}
+
+#guide__compra {
+    background-image: url(./img/alquiler.jpg);
+}
+
+#guide__venta {
+    background-image: url(./img/recibirllaves.jpg);
+}
+
+.guide__image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1114;
+    min-height: 300px;
+    width: 100%;
+}
+
+.guide__text-container {
+    position: absolute;
+    top: 100px;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.guide__text-container h2,
+.guide__text-container p {
+    color: #fff;
+}
+
+.guide__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: -1px;
+    text-align: left;
+}
+
+.guide__list {
+    position: relative;
+    text-align: left;
+    margin: 1% 5%;
+}
+
+.guide__list h3 {
+    display: inline;
+    font-family: "nova";
+    font-weight: bold;
+}
+
+.guide__list p {
+    display: inline;
+}
+
+
+/* ======================================CAMBIO DE PANTALLA================================= */
+
+@media screen and (min-width: 768px) and (min-height: 500px) {
     .main-title {
-        font-size: var(--mobile-main-title);
-        font-family: "g-bold";
-        line-height: 49px;
-        color: #fff;
+        font-size: var(--desktop-main-title);
+        line-height: 80px;
     }
-    
     .title {
-        font-size: var(--mobile-title);
-        margin: 4% 0;
-        font-family: "g-bold";
+        font-size: var(--desktop-title);
+        margin: 2% 0;
     }
-    
     .subtitle {
-        font-size: var(--mobile-title);
-        font-family: "g-medium";
+        font-size: var(--desktop-title);
     }
-    
     p {
-        font-size: var(--mobile-paragraph);
-        font-family: "nova";
+        font-size: var(--desktop-paragraph);
     }
-    
     .button-1,
     .button-2 {
-        margin: 20px;
-        border: none;
-        border-radius: 8px;
-        padding: 0.5% 5%;
-        color: #fff;
-        font-family: "g-bold";
-        font-size: var(--mobile-small-paragraph);
-        cursor: pointer;
+        margin-top: 4%;
+        padding: 9px 25px;
+        font-size: var(--desktop-paragraph);
     }
     /* ============================================NAVBAR========================================= */
-    
-    nav {
-        position: fixed;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background-color: #0007;
-        padding: 4px 10px;
-        height: 57px;
-        z-index: 300;
-        transition: background 0.5s ease-in-out;
-    }
-    
-    .open {
-        background-color: #000;
-    }
-    
-    .menu-container {
-        position: fixed;
-        top: 65px;
-        overflow: hidden;
-        max-height: 0;
-        width: 100%;
-        background-color: #0007;
-        transition: max-height 0.5s ease-in-out, background 0.5s ease-in-out;
-        padding: 0 25px;
-        z-index: 500;
-    }
-    
-    .menu-container li {
-        padding: 0 0 10px;
-        list-style: none;
-    }
-    
-    .menu-container a {
-        text-decoration: none;
-        color: #fff;
-        font-family: "g-medium";
-    }
-    
-    .menu-container a:hover {
-        color: #ddd;
-    }
-    
-    .show {
-        background-color: #000;
-        padding: 0 25px;
-        max-height: 180px;
-    }
-    
-    .logo {
-        text-decoration: none;
-        font-size: var(--mobile-logo);
-        font-family: "g-bold";
-        color: transparent;
-        background-image: repeating-linear-gradient(320deg, #004e64, #9fffcb);
-        -webkit-background-clip: text;
-    }
-    
-    .logo::after {
-        content: "Ar";
-        color: #fff;
-    }
-    
-    #button-checkbox {
+    .button-container {
         display: none;
     }
-    
-    .button-container {
-        position: relative;
-        justify-content: center;
+    .menu-container-desktop {
+        display: flex;
+        gap: 40px;
+        padding: 0 30px;
+        height: 100%;
         align-items: center;
-        cursor: pointer;
-        margin: 5px 25px;
-        border-radius: 15%;
-        background-color: #fff;
-        width: 44px;
-        height: 38px;
     }
-    
-    .button-container #span1,
-    .button-container #span2,
-    .button-container #span3 {
-        position: absolute;
+    .menu-container-desktop li {
+        list-style: none;
+    }
+    .menu-container-desktop a {
+        position: relative;
+    }
+    .menu-container-desktop a::after {
         content: "";
-        margin: 7px;
-        width: 30px;
-        height: 4px;
-        background: #888;
-        border-radius: 15px;
-        transition: all 0.4s ease;
+        position: absolute;
+        background-image: linear-gradient(90deg, #25A18E, #7AE582);
+        padding: 0 0 3px;
+        width: 0;
+        transition: width 0.4s;
+        top: 20px;
+        left: 0px;
     }
-    
-    #span1 {
-        top: 2px;
-    }
-    
-    #span2 {
-        top: 10px;
-    }
-    
-    #span3 {
-        top: 18px;
-    }
-    
-    #button-checkbox:checked~.button-container #span1 {
-        transform: rotate(45deg);
-        top: 10px;
-    }
-    
-    #button-checkbox:checked~.button-container #span2 {
-        opacity: 0;
-    }
-    
-    #button-checkbox:checked~.button-container #span3 {
-        transform: rotate(-45deg);
-        top: 10px;
-    }
-    
-    #button-checkbox:checked~nav {
-        height: 100px;
+    .menu-container-desktop a:hover::after {
+        width: 100%;
     }
     /* ============================================HOME========================================= */
-    
-    .home__image-container {
-        min-height: 680px;
-        background-image: url(./img/indoor.jpg);
-        background-position: 75% 50%;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    
     .home__text-container {
-        display: block;
-        position: absolute;
-        text-align: center;
-        top: 11%;
-        margin: 5%;
-        height: 76%;
+        top: 10%;
     }
-    
-    .home__text-container h3,
     .home__text-container p {
-        color: #fff;
+        margin-top: 8%;
     }
-    
-    .home__text-container h1,
-    .home__text-container h3 {
-        padding: 10px 30px;
-    }
-    
-    .home__text-container p {
-        margin-top: 15%;
-    }
-    
     .scroll-down-svg {
-        height: 75px;
-        margin-top: 10px;
-        fill: #fff;
-    }
-    
-    .home__image-container::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #014E6470;
-        min-height: 680px;
-        width: 100%;
+        height: 100px;
     }
     /* ============================================SERVICES========================================= */
-    
-    .services,
-    .begin {
-        padding: 20px;
-        text-align: center;
+    .services__box-container {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 0;
+        margin: 5% 14%;
     }
-    
-    .services h2 {
-        margin: 4% 0;
-    }
-    
-    .services p {
-        color: #a3a3a3;
-    }
-    
     .services-box {
-        margin: 30px 0;
+        margin: 0;
     }
-    
-    .services-svg {
-        height: 110px;
+    .services-box h3 {
+        margin: 5% 0;
+    }
+    .services-box p {
+        font-size: var(--desktop-small-paragraph);
+    }
+    .services h2 {
+        margin: 2%;
+    }
+    .services p {
+        margin: 0 15%;
     }
     /* ============================================HELP========================================= */
-    
-    .help {
-        position: relative;
-    }
-    
     .help__image-container {
-        min-height: 250px;
-        background-image: url(./img/living-room3.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: 100;
+        background-attachment: fixed;
+        background-position: 0 -50px;
+        min-height: 320px;
     }
-    
     .help__image-container::after {
-        content: "";
-        background-color: #004e6465;
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-height: 250px;
-        width: 100%;
+        min-height: 320px;
     }
-    
     .help__text-container {
-        width: 100%;
-        position: absolute;
-        top: 5px;
-        text-align: center;
-        padding: 30px 0;
-    }
-    
-    .help__text-container h2,
-    .help__text-container p {
-        color: #fff;
-    }
-    
-    .button-1 {
-        background-image: linear-gradient(90deg, #25A18E, #7AE582);
-    }
-    
-    .button-2 {
-        background-image: linear-gradient(90deg, #004e64, #00A5CF);
-        padding: 0.5% 6%;
+        padding: 45px 0 0;
     }
     /* ============================================FOOTER========================================= */
-    
-    footer {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .waves-svg {
-        opacity: 97%;
-        z-index: 50;
-    }
-    
-    .footer__text-container {
-        position: relative;
-        background-color: #0098BE;
-        min-height: 80px;
-        z-index: 100;
-        padding: 20px;
-        text-align: center;
-    }
-    
-    .footer__text-container p {
-        color: #fff;
-        margin: 2% 0;
-        font-weight: 600;
-    }
-    
-    .footer__text-container li>p {
-        font-size: var(--mobile-big-paragraph);
-    }
-    
-    .footer__text-container h2 {
-        text-align: center;
-        color: #fff;
-        font-weight: 900;
-        margin-bottom: 5%;
-        font-size: var(--mobile-main-title);
-        font-family: "g-bold";
-    }
-    
     .divider {
-        display: none;
+        display: inline;
+        height: 6px;
+        width: 6px;
     }
-    
-    .footer__text-container ul li {
-        list-style: none;
+    .footer__text-container {
+        padding: 0;
     }
-    
-    .social-media-icon {
-        height: 40px;
-        margin: 5px;
+    .footer__text-container ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
     }
-    
+    .footer__text-container li>p {
+        font-size: var(--desktop-small-paragraph);
+    }
+    .footer__text-container h2 {
+        margin-bottom: 2%;
+    }
     .copyright {
         font-size: var(--mobile-small-paragraph);
     }
     /* ======================================================================= */
     /* ===============================Página de sugerencias=============================== */
     /* ======================================================================= */
-    
-    .sugestions__text-container {
-        display: inline-block;
-        position: relative;
-        text-align: center;
-        top: 60px;
-        margin: 5%;
-    }
-    
     .sugestions__text-container p {
-        color: #a3a3a3;
+        margin: 0 15%;
     }
-    
+    .sugestions__container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sugestion__image-container {
+        height: 100px;
+    }
+    .sugestions__single-container {
+        width: 270px;
+    }
     .sugestions__single-container h2 {
         margin-top: 3%;
-        font-size: 28px;
     }
-    
-    .sugestions__container {
-        margin: 80px 9%;
-        display: flex;
-        flex-direction: column;
-        gap: 35px;
+    .sugestions__single-container input {
+        font-size: 16px;
+        padding: 3px 17px;
     }
-    
-    .sugestions__single-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0px 10px 20px -7px #000000;
-        border-radius: 15px;
+    /* ======================================================================= */
+    /* ===============================Páginas de guías=============================== */
+    /* ======================================================================= */
+    .guide__text-container {
+        margin: 0;
+        top: 160px;
     }
-    
-    .sugestion__image-container {
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 250px;
-        background-size: 120%;
-        background-position: -20 -60px;
-        border-radius: 15px 15px 0 0;
-        width: 100%;
+    .guide__text-container h2 {
+        font-size: 44px;
     }
-    
-    #alquiler {
-        background-image: url(./img/alquiler2.jpg);
-        direction: rtl;
-        background-size: 130%;
-        background-position: -60px -10px;
+    .guide__text-container p {
+        font-size: 32px;
+        margin: 0 5%;
     }
-    
-    #venta {
-        background-image: url(./img/recibirllaves.jpg);
-        background-position: -50px;
-        background-size: 130%;
-        background-position: -20px -15px;
+    .guide__image-container {
+        background-position: 0 0;
+        height: 400px;
     }
-    
-    #compra {
-        background-image: url(./img/alquiler.jpg);
-        background-size: 120%;
-        background-position: -20px 0;
+    .guide__image-container::after {
+        min-height: 400px;
     }
-    /* ======================================CAMBIO DE PANTALLA================================= */
-    
-    @media screen and (min-width: 768px) {
-        .main-title {
-            font-size: var(--desktop-main-title);
-            line-height: 80px;
-        }
-        .title {
-            font-size: var(--desktop-title);
-            margin: 2% 0;
-        }
-        .subtitle {
-            font-size: var(--desktop-title);
-        }
-        p {
-            font-size: var(--desktop-paragraph);
-        }
-        .button-1,
-        .button-2 {
-            margin-top: 4%;
-            padding: 9px 25px;
-            font-size: var(--desktop-paragraph);
-        }
-        /* ============================================NAVBAR========================================= */
-        .button-container {
-            display: none;
-        }
-        /* ============================================HOME========================================= */
-        .home__text-container {
-            top: 10%;
-        }
-        .home__text-container p {
-            margin-top: 8%;
-        }
-        .scroll-down-svg {
-            height: 100px;
-        }
-        /* ============================================SERVICES========================================= */
-        .services__box-container {
-            display: grid;
-            grid-template-rows: repeat(2, 1fr);
-            grid-template-columns: repeat(2, 1fr);
-            gap: 60px 0;
-            margin: 5% 14%;
-        }
-        .services-box {
-            margin: 0;
-        }
-        .services-box h3 {
-            margin: 5% 0;
-        }
-        .services-box p {
-            font-size: var(--desktop-small-paragraph);
-        }
-        .services h2 {
-            margin: 2%;
-        }
-        .services p {
-            margin: 0 15%;
-        }
-        /* ============================================HELP========================================= */
-        .help__image-container {
-            background-attachment: fixed;
-            background-position: 0 -50px;
-            min-height: 320px;
-        }
-        .help__image-container::after {
-            min-height: 320px;
-        }
-        .help__text-container {
-            padding: 45px 0 0;
-        }
-        /* ============================================FOOTER========================================= */
-        .divider {
-            display: inline;
-            height: 6px;
-            width: 6px;
-        }
-        .footer__text-container {
-            padding: 0;
-        }
-        .footer__text-container ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 7px;
-        }
-        .footer__text-container li>p {
-            font-size: var(--desktop-small-paragraph);
-        }
-        .footer__text-container h2 {
-            margin-bottom: 2%;
-        }
-        .copyright {
-            font-size: var(--mobile-small-paragraph);
-        }
-        /* ======================================================================= */
-        /* ===============================Página de sugerencias=============================== */
-        /* ======================================================================= */
-        .sugestions__text-container p {
-            margin: 0 15%;
-        }
-        .sugestions__container {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .sugestions__single-container h2 {
-            margin-top: 3%;
-        }
+    .guide__container {
+        margin: 5% 10% 0;
     }
+    .guide__list h3 {
+        font-size: 24px;
+    }
+}
