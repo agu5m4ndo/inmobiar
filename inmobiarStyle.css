@@ -341,7 +341,7 @@ footer {
 
 .footer__text-container {
     position: relative;
-    background-color: #0098BE;
+    background-color: #0897bc;
     min-height: 80px;
     z-index: 100;
     padding: 20px;
@@ -536,6 +536,119 @@ footer {
 }
 
 
+/* ======================================================================= */
+
+
+/* ===============================Página de búsqueda=============================== */
+
+
+/* ======================================================================= */
+
+.search {
+    display: block;
+}
+
+.search__image-container {
+    background-image: url(./img/indoor2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 35% 0;
+    height: 470px;
+    width: 100%;
+}
+
+.search__image-container::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 470px;
+    background-color: #1114;
+}
+
+.search__form-container {
+    height: 470px;
+    top: 110px;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.search__form {
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #0007;
+    border-radius: 13px;
+    padding: 5% 2%;
+}
+
+.search__form h2 {
+    color: #fff;
+}
+
+.search__selectors {
+    display: inline-block;
+    width: 100%;
+}
+
+.option-selector {
+    height: 42px;
+    font-family: 'g-medium';
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 0 6px;
+    width: 49%;
+    background-color: #fff;
+}
+
+.property-selector {
+    height: 42px;
+    font-family: 'g-medium';
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 0 6px;
+    width: 49%;
+    background-color: #fff;
+}
+
+.property-selector option,
+.option-selector option {
+    font-family: 'nova';
+    background-color: #fff;
+}
+
+.search__search-bar {
+    display: inline-block;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.search__search-bar input {
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 40px;
+    border: none;
+    width: 73%;
+}
+
+.search__search-bar button {
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+}
+
+.selling-option {
+    padding: 12% 10%;
+    text-align: center;
+}
+
+
 /* ======================================CAMBIO DE PANTALLA================================= */
 
 @media screen and (min-width: 768px) and (min-height: 500px) {
@@ -709,5 +822,25 @@ footer {
     }
     .guide__list h3 {
         font-size: 24px;
+    }
+    /* ======================================================================= */
+    /* ===============================Página de búsqueda=============================== */
+    /* ======================================================================= */
+    .search__form-container {
+        height: 470px;
+        width: 100%;
+        padding: 0;
+        padding-top: 120px;
+        justify-content: center;
+        top: 0;
+    }
+    .search__form {
+        padding: 3%;
+    }
+    .selling-option {
+        padding: 4%;
+    }
+    .selling-option button {
+        margin: 3%;
     }
 }
